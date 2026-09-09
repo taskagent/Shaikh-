@@ -1,13 +1,466 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting…</title>
-  <script>
-    window.onload = function() {
-      window.location.href = "https://yonogamesh.com/?code=JJ8AZ82Z&t=1788758908";
-    };
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yono Games - Android App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#111;
+    padding-bottom:75px;
+}
+
+/* TOP BAR */
+.topbar{
+    height:65px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    border-bottom:1px solid #eee;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#ff5b45;
+}
+
+.menu{
+    font-size:28px;
+}
+
+/* SEARCH */
+.search-box{
+    margin:18px 20px;
+    height:52px;
+    border:1px solid #ddd;
+    border-radius:28px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    color:#888;
+    font-size:17px;
+}
+
+.search-icon{
+    margin-left:auto;
+    font-size:28px;
+}
+
+/* AD */
+.ad{
+    margin:10px 20px 25px;
+    height:85px;
+    background:#f5f5f5;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#999;
+    font-size:12px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+    padding:0 25px;
+    color:#888;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.breadcrumb b{
+    color:#f05c43;
+}
+
+/* HERO */
+.hero{
+    margin:0 20px;
+    height:390px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+    background:
+    radial-gradient(circle at 50% 35%,
+    #157b3d 0%,
+    #064b25 45%,
+    #012914 100%);
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:330px;
+    height:330px;
+    border:3px solid rgba(50,180,90,.25);
+    transform:rotate(45deg);
+    top:-80px;
+    left:50%;
+    margin-left:-165px;
+}
+
+/* YONO */
+.yono{
+    position:absolute;
+    top:60px;
+    width:100%;
+    text-align:center;
+    font-size:70px;
+    font-weight:900;
+    letter-spacing:4px;
+    color:#ffd800;
+    text-shadow:
+        0 5px 0 #9a7900,
+        0 10px 15px rgba(0,0,0,.6);
+}
+
+/* GAMES */
+.games{
+    position:absolute;
+    top:145px;
+    width:100%;
+    text-align:center;
+    font-size:45px;
+    font-weight:900;
+    letter-spacing:2px;
+    color:#d8d8d8;
+    text-shadow:0 5px 5px #000;
+}
+
+/* APP INFO */
+.app-info{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    display:flex;
+    align-items:center;
+}
+
+.app-icon{
+    width:82px;
+    height:82px;
+    border-radius:20px;
+    background:linear-gradient(145deg,#087a3b,#012e18);
+    border:1px solid rgba(255,255,255,.2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+
+.app-icon span{
+    color:#ffd900;
+    font-size:18px;
+    font-weight:900;
+    text-align:center;
+}
+
+.app-name{
+    margin-left:18px;
+    color:white;
+}
+
+.app-name h1{
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.app-name p{
+    color:#ddd;
+    font-size:16px;
+}
+
+/* STATS */
+.stats{
+    margin:35px 20px 20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid #eee;
+    padding-bottom:25px;
+}
+
+.stat{
+    text-align:center;
+    border-right:1px solid #eee;
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat-title{
+    color:#777;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.stat-value{
+    font-size:23px;
+    font-weight:500;
+    color:#555;
+}
+
+.stat-small{
+    font-size:12px;
+    color:#888;
+    margin-top:5px;
+}
+
+.trusted{
+    color:#159b68;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.shield{
+    font-size:30px;
+    margin-bottom:4px;
+}
+
+/* DOWNLOAD BUTTON */
+.download{
+    margin:20px;
+}
+
+.download a{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#ff624b;
+    color:white;
+    padding:21px;
+    border-radius:22px;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 5px 12px rgba(255,98,75,.25);
+    transition:.2s;
+}
+
+.download a:hover{
+    background:#ed503b;
+    transform:scale(1.01);
+}
+
+/* DESCRIPTION */
+.description{
+    margin:30px 25px;
+}
+
+.description h2{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.description p{
+    color:#666;
+    line-height:1.6;
+    font-size:15px;
+}
+
+/* BOTTOM NAVIGATION */
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:white;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:20;
+}
+
+.nav-item{
+    text-align:center;
+    color:#666;
+    font-size:12px;
+}
+
+.nav-icon{
+    font-size:24px;
+    display:block;
+    margin-bottom:3px;
+}
+
+.active{
+    color:#333;
+    font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:500px){
+
+    .hero{
+        height:370px;
+    }
+
+    .yono{
+        font-size:62px;
+    }
+
+    .games{
+        font-size:40px;
+    }
+
+    .stat-value{
+        font-size:19px;
+    }
+
+    .stat-title{
+        font-size:12px;
+    }
+}
+</style>
 </head>
+
 <body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="logo">
+        <span>▶</span> Yono Games
+    </div>
+
+    <div class="menu">⋮</div>
+</div>
+
+<!-- SEARCH -->
+<div class="search-box">
+    Search here
+    <span class="search-icon">⌕</span>
+</div>
+
+<!-- ADVERTISEMENT -->
+<div class="ad">
+    ADVERTISEMENT
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    Homepage &nbsp;&gt;&nbsp;
+    Android Apps &nbsp;&gt;&nbsp;
+    <b>Yono Games</b>
+</div>
+
+<!-- APP HERO -->
+<div class="hero">
+
+    <div class="yono">YONO</div>
+
+    <div class="games">GAMES</div>
+
+    <div class="app-info">
+
+        <div class="app-icon">
+            <span>YONO<br>GAMES</span>
+        </div>
+
+        <div class="app-name">
+            <h1>Yono Games</h1>
+            <p>Yono Games</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- APP STATS -->
+<div class="stats">
+
+    <div class="stat">
+        <div class="shield">🛡️</div>
+        <div class="trusted">Trusted</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-title">Downloads</div>
+        <div class="stat-value">100K+</div>
+        <div class="stat-small">Thousands</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-title">Rating</div>
+        <div class="stat-value">4.8</div>
+        <div class="stat-small">★★★★★</div>
+    </div>
+
+    <div class="stat">
+        <div class="stat-title">Size</div>
+        <div class="stat-value">29.5MB</div>
+        <div class="stat-small">Megabytes</div>
+    </div>
+
+</div>
+
+<!-- DOWNLOAD -->
+<div class="download">
+
+    <a href="https://taskagent.github.io/Vish/" target="_blank">
+        ⬇ DOWNLOAD YONO GAMES
+    </a>
+
+</div>
+
+<!-- DESCRIPTION -->
+<div class="description">
+
+    <h2>Yono Games</h2>
+
+    <p>
+        Yono Games is an Android gaming application.
+        Download the latest version and enjoy your favorite games.
+    </p>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+
+    <div class="nav-item active">
+        <span class="nav-icon">⌂</span>
+        Home
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">🎮</span>
+        Games
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">▦</span>
+        Apps
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">▤</span>
+        Editorial
+    </div>
+
+    <div class="nav-item">
+        <span class="nav-icon">⋮</span>
+        More
+    </div>
+
+</div>
+
 </body>
 </html>
